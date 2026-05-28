@@ -163,7 +163,7 @@ nav.scrolled { padding: 0.8rem 3rem; }
   transform: translate(-50%, -50%); text-align: center;
 }
 .hero-logo-large {
-  width: 170px; height: 170px;
+  width: 90px; height: 90px;
   animation: float 4s ease-in-out infinite;
 }
 @keyframes float {
@@ -672,6 +672,62 @@ footer::before {
   background: #25D366; color: white;
 }
 
+
+/* ── COMBO SPLIT IMAGE ── */
+.combo-img-split {
+  display: flex; width: 100%; overflow: hidden; position: relative;
+}
+.combo-img-split .split-img {
+  width: 50%; aspect-ratio: 3/2; object-fit: cover; display: block;
+  filter: sepia(15%) contrast(1.05); transition: filter 0.4s, transform 0.4s;
+}
+.product-card.featured .combo-img-split .split-img { aspect-ratio: 4/3; }
+.combo-img-split .split-divider {
+  width: 2px; background: rgba(184,150,78,0.5); flex-shrink: 0; z-index: 2;
+  position: relative;
+}
+.combo-img-split .split-divider::after {
+  content: '+'; position: absolute; top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  background: var(--brown-dark); color: var(--gold-light);
+  width: 22px; height: 22px; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 0.75rem; font-weight: 900; border: 1px solid var(--gold);
+}
+.product-card:hover .combo-img-split .split-img {
+  filter: sepia(5%) contrast(1.1); transform: scale(1.04);
+}
+
+/* ── TICKER FRASES ── */
+.frases-ticker {
+  background: var(--brown-dark); overflow: hidden;
+  padding: 0.7rem 0; position: relative; border-top: 1px solid rgba(184,150,78,0.2);
+  border-bottom: 1px solid rgba(184,150,78,0.2);
+}
+.frases-ticker::before, .frases-ticker::after {
+  content: ''; position: absolute; top: 0; bottom: 0; width: 80px; z-index: 2;
+}
+.frases-ticker::before { left: 0; background: linear-gradient(to right, var(--brown-dark), transparent); }
+.frases-ticker::after  { right: 0; background: linear-gradient(to left, var(--brown-dark), transparent); }
+.frases-track {
+  display: flex; gap: 0; white-space: nowrap;
+  animation: ticker 38s linear infinite;
+}
+.frases-track:hover { animation-play-state: paused; }
+@keyframes ticker {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+.frase-item {
+  display: inline-flex; align-items: center; gap: 0.5rem;
+  padding: 0 2.5rem; color: rgba(242,234,216,0.82);
+  font-family: 'Cormorant Garamond', serif; font-size: 0.95rem;
+  font-style: italic; letter-spacing: 0.04em; flex-shrink: 0;
+}
+.frase-item .frase-sep {
+  color: var(--ember); font-style: normal; margin-left: 2.5rem;
+}
+
 /* ── CHAT POST-RESPONSE ACTIONS ── */
 .chat-post-actions {
   display: flex; gap: 0.5rem; flex-wrap: wrap;
@@ -735,7 +791,7 @@ footer::before {
 /* cuando hay video, el SVG fallback se oculta */
 .hero-video ~ .hero-bg-panel { z-index: 2; }
 .hero-video ~ .hero-bg-panel ~ .hero-fire-container { display: none; }
-.hero-anim-img { z-index: 1; }
+.hero-anim-img { z-index: 1; width: auto; height: auto; max-width: 60%; max-height: 70%; object-fit: contain; top: 50%; left: 50%; transform: translate(-50%, -50%); position: absolute; }
 
 </style>
 </head>
@@ -859,6 +915,34 @@ footer::before {
   </div>
 </div>
 
+
+<!-- TICKER FRASES -->
+<div class="frases-ticker">
+  <div class="frases-track" id="frasesTrack">
+    <span class="frase-item">🧉 El mate no se pide, se ofrece<span class="frase-sep">◆</span></span>
+    <span class="frase-item">🔥 Hecho a mano, sentido con el alma<span class="frase-sep">◆</span></span>
+    <span class="frase-item">🌿 La yerba buena es la que se comparte<span class="frase-sep">◆</span></span>
+    <span class="frase-item">🪵 Algarrobo que dura toda la vida<span class="frase-sep">◆</span></span>
+    <span class="frase-item">☕ El primer mate del día es sagrado<span class="frase-sep">◆</span></span>
+    <span class="frase-item">🐄 Cada pieza única, como quien la ceba<span class="frase-sep">◆</span></span>
+    <span class="frase-item">🍂 Tradición en tus manos<span class="frase-sep">◆</span></span>
+    <span class="frase-item">💛 Sin apuro, como el primer cebado<span class="frase-sep">◆</span></span>
+    <span class="frase-item">🌾 Del campo a tu mesa<span class="frase-sep">◆</span></span>
+    <span class="frase-item">🤎 Fogón Mates — tradición que se comparte<span class="frase-sep">◆</span></span>
+    <!-- duplicado para loop continuo -->
+    <span class="frase-item">🧉 El mate no se pide, se ofrece<span class="frase-sep">◆</span></span>
+    <span class="frase-item">🔥 Hecho a mano, sentido con el alma<span class="frase-sep">◆</span></span>
+    <span class="frase-item">🌿 La yerba buena es la que se comparte<span class="frase-sep">◆</span></span>
+    <span class="frase-item">🪵 Algarrobo que dura toda la vida<span class="frase-sep">◆</span></span>
+    <span class="frase-item">☕ El primer mate del día es sagrado<span class="frase-sep">◆</span></span>
+    <span class="frase-item">🐄 Cada pieza única, como quien la ceba<span class="frase-sep">◆</span></span>
+    <span class="frase-item">🍂 Tradición en tus manos<span class="frase-sep">◆</span></span>
+    <span class="frase-item">💛 Sin apuro, como el primer cebado<span class="frase-sep">◆</span></span>
+    <span class="frase-item">🌾 Del campo a tu mesa<span class="frase-sep">◆</span></span>
+    <span class="frase-item">🤎 Fogón Mates — tradición que se comparte<span class="frase-sep">◆</span></span>
+  </div>
+</div>
+
 <!-- PRODUCTOS -->
 <section id="productos">
   <div class="section-header">
@@ -884,7 +968,11 @@ footer::before {
       <div class="product-card featured" data-cat="combos">
         <div class="product-img-wrap">
           <span class="product-badge">Oferta</span>
-          <img class="product-img" src="Camionero_clásico_de_algarobo.jpeg" alt="Combo Criollo + Bombilla" onerror="this.style.background='#D4C4A0';this.setAttribute('src','');this.style.aspectRatio='16/9'">
+          <div class="combo-img-split">
+            <img class="split-img" src="Mate_Criollo_de_calabaza.jpeg" alt="Mate Criollo" onerror="this.style.background='#D4C4A0'">
+            <div class="split-divider"></div>
+            <img class="split-img" src="Bombilla_pico_de_loro__inoxidable_.jpeg" alt="Bombilla" onerror="this.style.background='#C4B090'">
+          </div>
         </div>
         <div class="product-info">
           <h3 class="product-name">Combo Criollo + Bombilla</h3>
@@ -902,7 +990,11 @@ footer::before {
       <!-- COMBO CAMIONERO -->
       <div class="product-card" data-cat="combos">
         <div class="product-img-wrap">
-          <img class="product-img" src="Camionero_clásico_de_algarobo.jpeg" alt="Combo Camionero de Algarrobo + Bombilla" onerror="this.style.background='#D4C4A0'">
+          <div class="combo-img-split">
+            <img class="split-img" src="Camionero_clásico_de_algarobo.jpeg" alt="Camionero Algarrobo" onerror="this.style.background='#D4C4A0'">
+            <div class="split-divider"></div>
+            <img class="split-img" src="Bombilla_pico_de_loro__inoxidable_.jpeg" alt="Bombilla" onerror="this.style.background='#C4B090'">
+          </div>
         </div>
         <div class="product-info">
           <h3 class="product-name">Combo Camionero de Algarrobo + Bombilla</h3>
@@ -935,7 +1027,7 @@ footer::before {
       <!-- TORPEDO -->
       <div class="product-card" data-cat="calabaza">
         <div class="product-img-wrap">
-          <img class="product-img" src="Camionero_clásico_de_algarobo.jpeg" alt="Torpedo con Virola de Acero" onerror="this.style.background='#D4C4A0'">
+          <img class="product-img" src="Mate_Criollo_de_calabaza.jpeg" alt="Torpedo con Virola de Acero" onerror="this.style.background='#D4C4A0'">
         </div>
         <div class="product-info">
           <h3 class="product-name">Torpedo con Virola de Acero</h3>
