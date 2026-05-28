@@ -295,10 +295,10 @@ nav.scrolled { padding: 0.8rem 3rem; }
 .product-card.featured { grid-column: span 2; }
 .product-img-wrap { overflow: hidden; position: relative; }
 .product-img {
-  width: 100%; aspect-ratio: 4/3; object-fit: cover; display: block;
-  filter: sepia(15%) contrast(1.05); transition: filter 0.4s, transform 0.4s;
+  width: 100%; height: auto; max-height: 420px; object-fit: cover; display: block;
+  filter: sepia(10%) contrast(1.04); transition: filter 0.4s, transform 0.4s;
 }
-.product-card.featured .product-img { aspect-ratio: 16/9; }
+.product-card.featured .product-img { max-height: 500px; }
 .product-card:hover .product-img { filter: sepia(5%) contrast(1.1); transform: scale(1.03); }
 .product-badge {
   position: absolute; top: 1rem; right: 1rem;
@@ -678,10 +678,10 @@ footer::before {
   display: flex; width: 100%; overflow: hidden; position: relative;
 }
 .combo-img-split .split-img {
-  width: 50%; aspect-ratio: 3/2; object-fit: cover; display: block;
-  filter: sepia(15%) contrast(1.05); transition: filter 0.4s, transform 0.4s;
+  width: 50%; height: auto; max-height: 420px; object-fit: cover; display: block;
+  filter: sepia(10%) contrast(1.04); transition: filter 0.4s, transform 0.4s;
 }
-.product-card.featured .combo-img-split .split-img { aspect-ratio: 4/3; }
+.product-card.featured .combo-img-split .split-img { max-height: 500px; }
 .combo-img-split .split-divider {
   width: 2px; background: rgba(184,150,78,0.5); flex-shrink: 0; z-index: 2;
   position: relative;
@@ -785,13 +785,20 @@ footer::before {
   position: absolute; inset: 0;
   width: 100%; height: 100%;
   object-fit: cover;
-  opacity: 0.75;
+  opacity: 1;
   z-index: 1;
 }
-/* cuando hay video, el SVG fallback se oculta */
-.hero-video ~ .hero-bg-panel { z-index: 2; }
-.hero-video ~ .hero-bg-panel ~ .hero-fire-container { display: none; }
-.hero-anim-img { z-index: 1; width: auto; height: auto; max-width: 60%; max-height: 70%; object-fit: contain; top: 50%; left: 50%; transform: translate(-50%, -50%); position: absolute; }
+/* Cuando hay video cargado, ocultar todo lo demás */
+.hero-video ~ .hero-bg-panel,
+.hero-video ~ .hero-anim-img,
+.hero-video ~ .hero-fire-container { display: none; }
+/* fallback image (logo2.png) si no hay video */
+.hero-anim-img {
+  position: absolute; z-index: 1;
+  width: 80px; height: 80px; object-fit: contain;
+  top: 50%; left: 50%; transform: translate(-50%, -50%);
+  opacity: 0.7;
+}
 
 </style>
 </head>
@@ -971,7 +978,7 @@ footer::before {
           <div class="combo-img-split">
             <img class="split-img" src="Mate_Criollo_de_calabaza.jpeg" alt="Mate Criollo" onerror="this.style.background='#D4C4A0'">
             <div class="split-divider"></div>
-            <img class="split-img" src="Bombilla_pico_de_loro__inoxidable_.jpeg" alt="Bombilla" onerror="this.style.background='#C4B090'">
+            <img class="split-img" src="Bombilla_pico_de_loro__inoxidable_.jpeg" alt="Bombilla Pico de Loro" onerror="this.style.background='#C4B090'">
           </div>
         </div>
         <div class="product-info">
@@ -993,7 +1000,7 @@ footer::before {
           <div class="combo-img-split">
             <img class="split-img" src="Camionero_clásico_de_algarobo.jpeg" alt="Camionero Algarrobo" onerror="this.style.background='#D4C4A0'">
             <div class="split-divider"></div>
-            <img class="split-img" src="Bombilla_pico_de_loro__inoxidable_.jpeg" alt="Bombilla" onerror="this.style.background='#C4B090'">
+            <img class="split-img" src="Bombilla_pico_de_loro__inoxidable_.jpeg" alt="Bombilla Pico de Loro" onerror="this.style.background='#C4B090'">
           </div>
         </div>
         <div class="product-info">
@@ -1027,7 +1034,7 @@ footer::before {
       <!-- TORPEDO -->
       <div class="product-card" data-cat="calabaza">
         <div class="product-img-wrap">
-          <img class="product-img" src="Mate_Criollo_de_calabaza.jpeg" alt="Torpedo con Virola de Acero" onerror="this.style.background='#D4C4A0'">
+          <img class="product-img" src="Torpedo_con_virola_de_acero.jpeg" alt="Torpedo con Virola de Acero" onerror="this.style.background='#D4C4A0'">
         </div>
         <div class="product-info">
           <h3 class="product-name">Torpedo con Virola de Acero</h3>
@@ -1103,7 +1110,7 @@ footer::before {
       <!-- BOMBILLA -->
       <div class="product-card" data-cat="bombillas">
         <div class="product-img-wrap">
-          <img class="product-img" src="Bombilla_pico_de_loro__inoxidable_.jpeg" alt="Bombilla Pico de Loro" onerror="this.style.background='#D4C4A0'">
+          <img class="product-img" src="Bombilla_pico_de_loro__inoxidable_.jpeg" alt="Bombilla Pico de Loro (Inoxidable)" onerror="this.style.background='#D4C4A0'">
         </div>
         <div class="product-info">
           <h3 class="product-name">Bombilla Pico de Loro (Inoxidable)</h3>
