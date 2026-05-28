@@ -637,25 +637,63 @@ footer::before {
   .stats-bar { padding: 2rem; flex-wrap: wrap; }
   .stat-divider { display: none; }
   .products-section { padding: 0 1.2rem 4rem; }
-  .products-grid { grid-template-columns: 1fr; }
-  .product-card.featured { grid-column: span 1; }
-  .product-card.featured .product-img { aspect-ratio: 4/3; }
+  .products-grid { grid-template-columns: 1fr 1fr; gap: 1rem; }
+  .product-card.featured { grid-column: span 2; }
   .feature-band { grid-template-columns: 1fr; padding: 3rem 2rem; gap: 2rem; }
   .cta-section { padding: 4rem 2rem; }
   footer { padding: 2rem; flex-direction: column; text-align: center; }
   .footer-links { justify-content: center; }
   .chat-window { width: 300px; }
   nav.scrolled { padding: 0.7rem 1.5rem; }
+
+  /* category nav en tablet */
+  .category-nav {
+    width: 100%; justify-content: flex-start;
+    border: none; gap: 0.5rem; margin: 0 0 2rem;
+  }
+  .cat-btn {
+    border: 1px solid var(--sand) !important;
+    border-radius: 2px; padding: 0.55rem 1rem;
+    font-size: 0.75rem; letter-spacing: 0.12em;
+  }
 }
+
 @media (max-width: 480px) {
   .hero-left { padding: 6rem 1.5rem 2.5rem; }
   .section-header { padding: 3.5rem 1.5rem 2rem; }
-  .products-section { padding: 0 1rem 3rem; }
-  .category-nav { width: 100%; flex-wrap: wrap; }
-  .cat-btn { flex: 1; min-width: 80px; border-right: none; border-bottom: 1px solid var(--sand); }
+  .products-section { padding: 0 0.8rem 3rem; }
+  .products-grid { grid-template-columns: 1fr; gap: 1rem; }
+  .product-card.featured { grid-column: span 1; }
+
+  /* category nav en mobile: scroll horizontal, no se apila */
+  .category-nav {
+    width: 100%; overflow-x: auto; overflow-y: visible;
+    flex-wrap: nowrap; -webkit-overflow-scrolling: touch;
+    border: none; gap: 0.4rem; padding-bottom: 0.5rem;
+    margin: 0 0 1.8rem; justify-content: flex-start;
+    /* ocultar scrollbar pero mantener funcionalidad */
+    scrollbar-width: none;
+  }
+  .category-nav::-webkit-scrollbar { display: none; }
+  .cat-btn {
+    flex-shrink: 0; white-space: nowrap;
+    border: 1px solid var(--sand) !important;
+    border-radius: 2px; padding: 0.5rem 1rem;
+    font-size: 0.72rem; letter-spacing: 0.1em;
+  }
+
   .quote-section { padding: 4rem 1.5rem; }
   .cta-section { padding: 3rem 1.5rem; }
-  .chat-window { width: 290px; left: -10px; }
+  .chat-window { width: calc(100vw - 2rem); left: auto; right: 0; }
+  .float-btns { bottom: 1.2rem; right: 1rem; }
+  .chat-bubble { bottom: 1.2rem; left: 1rem; }
+  .stats-bar { padding: 1.5rem 1rem; gap: 1rem; }
+  .stat-number { font-size: 1.6rem; }
+  .cta-buttons { flex-direction: column; }
+  .btn-whatsapp, .btn-instagram { width: 100%; justify-content: center; }
+  footer { padding: 1.5rem 1rem; gap: 1rem; }
+  .footer-links { gap: 1rem; flex-wrap: wrap; justify-content: center; }
+  .combo-img-split .split-img { max-height: 180px; }
 }
 
 .chat-header-links {
@@ -869,6 +907,7 @@ footer::before {
       autoplay muted loop playsinline
       onerror="this.style.display='none'"
     >
+      <source src="hero-video.mov" type="video/mp4">
       <source src="hero-video.mp4" type="video/mp4">
       <source src="hero-video.webm" type="video/webm">
     </video>
