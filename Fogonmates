@@ -1602,39 +1602,5 @@ setTimeout(() => {
 </script>
 
 
-<!--
-╔══════════════════════════════════════════════════════════════════════╗
-║              GUÍA DE ARCHIVOS — FOGÓN MATES                         ║
-║ Todos los archivos van en la MISMA carpeta que fogon-mates.html     ║
-╠══════════════════════════════════════════════════════════════════════╣
-║                                                                      ║
-║  🎬 HERO (panel derecho grande):                                    ║
-║     hero-video.mp4      → Video del fogón animado (prioridad)       ║
-║     hero-video.webm     → Alternativa WebM                          ║
-║     hero-animation.gif  → Si no hay video, usa este GIF             ║
-║                                                                      ║
-║  🤖 CHATBOT VIZCACHITA:                                             ║
-║     vizcachita-avatar.jpg → Foto/avatar redondo del chatbot         ║
-║                             Medida ideal: 200×200 px               ║
-║                                                                      ║
-║  🖼️  PESTAÑA DEL NAVEGADOR (favicon):                              ║
-║     favicon.svg         → Ya creado (logo SVG del fogón)            ║
-║     favicon.ico         → Opcional: versión .ico para IE/legacy     ║
-║                                                                      ║
-║  📸 FOTOS DE PRODUCTOS:                                             ║
-║     IMG_9883.jpeg   → Combo Criollo / Combo Camionero               ║
-║     IMG_9885.jpeg   → Mate Criollo Calabaza / Torpedo               ║
-║     IMG_9887.jpeg   → Vaquita Ranchero / Camionero Clásico         ║
-║     IMG_9888.jpeg   → Imperial Premium                              ║
-║     IMG_9890.jpeg   → Yerbera / Bombilla                            ║
-║                                                                      ║
-║  💡 TIPS:                                                           ║
-║     - Si querés fotos individuales por producto, renombrá cada      ║
-║       imagen y actualizá el src="" de la card correspondiente.      ║
-║     - El video del hero reemplaza automáticamente al SVG animado.   ║
-║     - Formatos de video recomendados: .mp4 (H.264) o .webm          ║
-╚══════════════════════════════════════════════════════════════════════╝
--->
-
 </body>
 </html>
