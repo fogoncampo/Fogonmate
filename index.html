@@ -299,6 +299,11 @@ nav.scrolled { padding: 0.8rem 3rem; }
   filter: sepia(10%) contrast(1.04); transition: filter 0.4s, transform 0.4s;
 }
 .product-card.featured .product-img { max-height: 500px; }
+/* imagen vertical: sin recorte, se muestra completa */
+.product-img-vertical {
+  width: 100%; height: auto; max-height: none; object-fit: contain;
+  background: var(--parchment);
+}
 .product-card:hover .product-img { filter: sepia(5%) contrast(1.1); transform: scale(1.03); }
 .product-badge {
   position: absolute; top: 1rem; right: 1rem;
@@ -1046,11 +1051,11 @@ footer::before {
         </div>
       </div>
 
-      <!-- IMPERIAL PREMIUM — FEATURED -->
-      <div class="product-card featured" data-cat="algarrobo">
+      <!-- IMPERIAL PREMIUM -->
+      <div class="product-card product-vertical" data-cat="algarrobo">
         <div class="product-img-wrap">
           <span class="product-badge">★ Premium</span>
-          <img class="product-img" src="Imperial_de_algarrobo_premium.jpeg" alt="Imperial de Algarrobo Premium" onerror="this.style.background='#D4C4A0'">
+          <img class="product-img product-img-vertical" src="Imperial_de_algarrobo_premium.jpeg" alt="Imperial de Algarrobo Premium" onerror="this.style.background='#D4C4A0'">
         </div>
         <div class="product-info">
           <h3 class="product-name">Imperial de Algarrobo Premium</h3>
