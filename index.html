@@ -631,9 +631,9 @@ footer::before {
   nav { padding: 1rem 1.5rem; }
   .nav-links { display: none; }
   .nav-hamburger { display: flex; }
-  .hero { grid-template-columns: 1fr; }
+  .hero { grid-template-columns: 1fr; min-height: auto; }
   .hero-left { padding: 7rem 2rem 3rem; }
-  .hero-right { height: 55vw; min-height: 280px; }
+  .hero-right { height: 50vw; min-height: 240px; max-height: 320px; }
   .stats-bar { padding: 2rem; flex-wrap: wrap; }
   .stat-divider { display: none; }
   .products-section { padding: 0 1.2rem 4rem; }
@@ -643,8 +643,10 @@ footer::before {
   .cta-section { padding: 4rem 2rem; }
   footer { padding: 2rem; flex-direction: column; text-align: center; }
   .footer-links { justify-content: center; }
-  .chat-window { width: 300px; }
   nav.scrolled { padding: 0.7rem 1.5rem; }
+
+  /* chat: ventana ancha pero sin salirse */
+  .chat-window { width: 300px; }
 
   /* category nav en tablet */
   .category-nav {
@@ -659,19 +661,29 @@ footer::before {
 }
 
 @media (max-width: 480px) {
-  .hero-left { padding: 6rem 1.5rem 2.5rem; }
-  .section-header { padding: 3.5rem 1.5rem 2rem; }
-  .products-section { padding: 0 0.8rem 3rem; }
-  .products-grid { grid-template-columns: 1fr; gap: 1rem; }
+  /* ── HERO ── */
+  .hero { min-height: auto; }
+  .hero-left { padding: 5.5rem 1.5rem 2rem; }
+  .hero-right { height: 45vw; min-height: 200px; max-height: 260px; overflow: hidden; }
+  .hero-video { object-position: center center; }
+
+  /* ── SECCIONES ── */
+  .section-header { padding: 3rem 1.2rem 1.5rem; }
+  .quote-section { padding: 3rem 1.2rem; }
+  .cta-section { padding: 2.5rem 1.2rem; }
+
+  /* ── PRODUCTOS: márgenes laterales visibles ── */
+  .products-section { padding: 0 1rem 3rem; }
+  .products-grid { grid-template-columns: 1fr; gap: 1.2rem; }
+  .product-card { margin: 0 2px; } /* pequeño margen para ver bordes */
   .product-card.featured { grid-column: span 1; }
 
-  /* category nav en mobile: scroll horizontal, no se apila */
+  /* ── CATEGORY NAV: scroll horizontal ── */
   .category-nav {
     width: 100%; overflow-x: auto; overflow-y: visible;
     flex-wrap: nowrap; -webkit-overflow-scrolling: touch;
-    border: none; gap: 0.4rem; padding-bottom: 0.5rem;
+    border: none; gap: 0.4rem; padding: 0 0 0.6rem 0;
     margin: 0 0 1.8rem; justify-content: flex-start;
-    /* ocultar scrollbar pero mantener funcionalidad */
     scrollbar-width: none;
   }
   .category-nav::-webkit-scrollbar { display: none; }
@@ -682,18 +694,36 @@ footer::before {
     font-size: 0.72rem; letter-spacing: 0.1em;
   }
 
-  .quote-section { padding: 4rem 1.5rem; }
-  .cta-section { padding: 3rem 1.5rem; }
-  .chat-window { width: calc(100vw - 2rem); left: auto; right: 0; }
-  .float-btns { bottom: 1.2rem; right: 1rem; }
+  /* ── CHATBOT: abre hacia arriba y a la derecha, nunca se sale ── */
   .chat-bubble { bottom: 1.2rem; left: 1rem; }
-  .stats-bar { padding: 1.5rem 1rem; gap: 1rem; }
-  .stat-number { font-size: 1.6rem; }
-  .cta-buttons { flex-direction: column; }
+  .chat-window {
+    position: fixed !important;
+    bottom: 5rem; left: 1rem;
+    width: calc(100vw - 2rem);
+    max-width: 360px;
+    height: auto;
+    max-height: 75vh;
+  }
+
+  /* ── FLOATING BUTTONS ── */
+  .float-btns { bottom: 1.2rem; right: 1rem; }
+  .float-btn { width: 46px; height: 46px; }
+
+  /* ── STATS ── */
+  .stats-bar { padding: 1.2rem 1rem; gap: 0.8rem; }
+  .stat-number { font-size: 1.5rem; }
+  .stat-label { font-size: 0.62rem; }
+
+  /* ── CONTACTO ── */
+  .cta-buttons { flex-direction: column; gap: 0.8rem; }
   .btn-whatsapp, .btn-instagram { width: 100%; justify-content: center; }
+
+  /* ── FOOTER ── */
   footer { padding: 1.5rem 1rem; gap: 1rem; }
   .footer-links { gap: 1rem; flex-wrap: wrap; justify-content: center; }
-  .combo-img-split .split-img { max-height: 180px; }
+
+  /* ── COMBOS ── */
+  .combo-img-split .split-img { max-height: 200px; }
 }
 
 .chat-header-links {
