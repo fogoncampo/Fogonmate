@@ -787,11 +787,12 @@ footer::before {
   background: var(--brown-dark);
   overflow: hidden;
   padding: 0.85rem 0;
-  position: relative;
-  z-index: 100;
+  position: sticky;
+  top: 64px;
+  z-index: 199;
   border-top: 2px solid rgba(184,150,78,0.4);
   border-bottom: 2px solid rgba(184,150,78,0.4);
-  box-shadow: 0 2px 20px rgba(0,0,0,0.3);
+  box-shadow: 0 4px 24px rgba(0,0,0,0.4);
 }
 .frases-ticker::before, .frases-ticker::after {
   content: ''; position: absolute; top: 0; bottom: 0; width: 60px; z-index: 2;
