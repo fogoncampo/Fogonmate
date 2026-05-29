@@ -188,9 +188,14 @@ nav.scrolled { padding: 0.8rem 3rem; }
   content: ''; display: block; width: 2.5rem; height: 1px; background: var(--ember);
 }
 .hero-welcome {
-  font-family: 'Cormorant Garamond', serif; font-size: 1rem;
-  letter-spacing: 0.25em; text-transform: uppercase;
-  color: var(--brown-light); margin-bottom: 0.5rem;
+  font-family: 'Cormorant Garamond', serif; font-size: 0.85rem;
+  letter-spacing: 0.3em; text-transform: uppercase;
+  color: var(--brown-light); margin-bottom: 0.2rem;
+}
+.hero-artesanal {
+  font-family: 'Cormorant Garamond', serif; font-style: italic;
+  font-size: 1rem; letter-spacing: 0.15em;
+  color: var(--gold); margin-bottom: 1.5rem; opacity: 0.9;
 }
 .hero-title {
   font-family: 'Playfair Display', serif;
@@ -633,7 +638,7 @@ footer::before {
   .nav-hamburger { display: flex; }
   .hero { grid-template-columns: 1fr; min-height: auto; }
   .hero-left { padding: 7rem 2rem 3rem; }
-  .hero-right { height: 60vw; min-height: 280px; max-height: 380px; }
+  .hero-right { height: 56vw; min-height: 260px; max-height: 360px; }
   .stats-bar { padding: 2rem; flex-wrap: wrap; }
   .stat-divider { display: none; }
   .products-section { padding: 0 1.2rem 4rem; }
@@ -664,7 +669,7 @@ footer::before {
   /* ── HERO ── */
   .hero { min-height: auto; }
   .hero-left { padding: 5.5rem 1.5rem 2rem; }
-  .hero-right { height: 55vw; min-height: 260px; max-height: 340px; overflow: hidden; }
+  .hero-right { height: 56vw; min-height: 240px; max-height: 340px; overflow: hidden; }
   .hero-video { object-position: center center; }
 
   /* ── SECCIONES ── */
@@ -800,6 +805,22 @@ footer::before {
 .btn-instagram-ig:hover { opacity: 0.88; color: white !important; }
 .btn-instagram-ig svg { stroke: white !important; }
 
+
+/* ── VIDEO FONDO DE PÁGINA ── */
+.page-bg-video-wrap {
+  position: fixed; inset: 0; z-index: -1; overflow: hidden;
+}
+.page-bg-video {
+  width: 100%; height: 100%;
+  object-fit: cover; object-position: center;
+  opacity: 0.12;
+}
+/* overlay para que el contenido sea legible */
+.page-bg-overlay {
+  position: fixed; inset: 0; z-index: -1;
+  background: rgba(242, 234, 216, 0.88);
+}
+
 /* ── TICKER FRASES ── */
 .frases-ticker {
   background: var(--brown-dark); overflow: hidden;
@@ -907,6 +928,14 @@ footer::before {
 </head>
 <body>
 
+<!-- VIDEO FONDO DE PÁGINA -->
+<div class="page-bg-video-wrap">
+  <video class="page-bg-video" autoplay muted loop playsinline>
+    <source src="bg-video.mp4" type="video/mp4">
+  </video>
+</div>
+<div class="page-bg-overlay"></div>
+
 <!-- NAV -->
 <nav id="main-nav">
   <a href="#" class="nav-logo">
@@ -932,14 +961,45 @@ footer::before {
   <a href="https://www.instagram.com/fogonmates/" target="_blank" rel="noopener">Instagram</a>
 </div>
 
+<!-- TICKER FRASES -->
+<div class="frases-ticker">
+  <div class="frases-track" id="frasesTrack">
+    <span class="frase-item">🧉 Las mejores charlas empiezan con un mate.<span class="frase-sep">◆</span></span>
+    <span class="frase-item">🤎 Tradición hecha diseño.<span class="frase-sep">◆</span></span>
+    <span class="frase-item">📦 Envíos a todo el país.<span class="frase-sep">◆</span></span>
+    <span class="frase-item">🔥 Hecho a mano, sentido con el alma.<span class="frase-sep">◆</span></span>
+    <span class="frase-item">🌳 Combo Camionero de Algarrobo + Bombilla — $25.500.<span class="frase-sep">◆</span></span>
+    <span class="frase-item">💬 Coordinamos tu compra por WhatsApp.<span class="frase-sep">◆</span></span>
+    <span class="frase-item">🍐 7 piezas únicas, ninguna igual a la otra.<span class="frase-sep">◆</span></span>
+    <span class="frase-item">🐄 Mate Vaquita/Ranchero — pintado a mano.<span class="frase-sep">◆</span></span>
+    <span class="frase-item">✨ Imperial de Algarrobo Premium — $27.200.<span class="frase-sep">◆</span></span>
+    <span class="frase-item">🚚 Despachamos por correo a todo el país.<span class="frase-sep">◆</span></span>
+    <span class="frase-item">💛 Sin apuro, como el primer cebado.<span class="frase-sep">◆</span></span>
+    <span class="frase-item">🤎 Fogón Mates — tradición que se comparte.<span class="frase-sep">◆</span></span>
+    <span class="frase-item">🧉 Las mejores charlas empiezan con un mate.<span class="frase-sep">◆</span></span>
+    <span class="frase-item">🤎 Tradición hecha diseño.<span class="frase-sep">◆</span></span>
+    <span class="frase-item">📦 Envíos a todo el país.<span class="frase-sep">◆</span></span>
+    <span class="frase-item">🔥 Hecho a mano, sentido con el alma.<span class="frase-sep">◆</span></span>
+    <span class="frase-item">🌳 Combo Camionero de Algarrobo + Bombilla — $25.500.<span class="frase-sep">◆</span></span>
+    <span class="frase-item">💬 Coordinamos tu compra por WhatsApp.<span class="frase-sep">◆</span></span>
+    <span class="frase-item">🍐 7 piezas únicas, ninguna igual a la otra.<span class="frase-sep">◆</span></span>
+    <span class="frase-item">🐄 Mate Vaquita/Ranchero — pintado a mano.<span class="frase-sep">◆</span></span>
+    <span class="frase-item">✨ Imperial de Algarrobo Premium — $27.200.<span class="frase-sep">◆</span></span>
+    <span class="frase-item">🚚 Despachamos por correo a todo el país.<span class="frase-sep">◆</span></span>
+    <span class="frase-item">💛 Sin apuro, como el primer cebado.<span class="frase-sep">◆</span></span>
+    <span class="frase-item">🤎 Fogón Mates — tradición que se comparte.<span class="frase-sep">◆</span></span>
+  </div>
+</div>
+
+
 <!-- HERO -->
 <section class="hero">
   <div class="hero-left">
     <span class="hero-welcome">Bienvenido a</span>
-    <span class="hero-eyebrow">Edición Artesanal · Hecho a Mano</span>
-    <h1 class="hero-title">Fogón<br><em>Mates</em></h1>
+    <span class="hero-eyebrow">Fogón Mates</span>
+    <p class="hero-artesanal">— Edición Artesanal · Hecho a Mano —</p>
     <p class="hero-subtitle">~ Tradición que se comparte ~</p>
-    <p class="hero-desc">Mates y accesorios trabajados pieza por pieza, con materiales nobles y terminaciones que respetan el oficio de siempre. Cada mate es único, como el momento en que se ceba.</p>
+    <p class="hero-desc">Mates y accesorios trabajados pieza por pieza, con materiales nobles y terminaciones que honran la artesanía tradicional. Cada mate es único, como cada momento compartido.</p>
     <div class="hero-actions">
       <!-- Comprar ya → WhatsApp -->
       <a href="https://wa.me/5491150998752?text=Hola%20Fog%C3%B3n!%20Quiero%20consultar%20por%20los%20productos%20y%20combos%20que%20vi%20en%20la%20web." target="_blank" rel="noopener" class="btn-primary">
@@ -1015,7 +1075,7 @@ footer::before {
   </div>
   <div class="stat-divider"></div>
   <div class="stat-item">
-    <span class="stat-number">9+</span>
+    <span class="stat-number">7</span>
     <span class="stat-label">Piezas Únicas</span>
   </div>
   <div class="stat-divider"></div>
@@ -1025,33 +1085,6 @@ footer::before {
   </div>
 </div>
 
-
-<!-- TICKER FRASES -->
-<div class="frases-ticker">
-  <div class="frases-track" id="frasesTrack">
-    <span class="frase-item">🧉 El mate no se pide, se ofrece<span class="frase-sep">◆</span></span>
-    <span class="frase-item">🔥 Hecho a mano, sentido con el alma<span class="frase-sep">◆</span></span>
-    <span class="frase-item">🌿 La yerba buena es la que se comparte<span class="frase-sep">◆</span></span>
-    <span class="frase-item">🪵 Algarrobo que dura toda la vida<span class="frase-sep">◆</span></span>
-    <span class="frase-item">☕ El primer mate del día es sagrado<span class="frase-sep">◆</span></span>
-    <span class="frase-item">🐄 Cada pieza única, como quien la ceba<span class="frase-sep">◆</span></span>
-    <span class="frase-item">🍂 Tradición en tus manos<span class="frase-sep">◆</span></span>
-    <span class="frase-item">💛 Sin apuro, como el primer cebado<span class="frase-sep">◆</span></span>
-    <span class="frase-item">🌾 Del campo a tu mesa<span class="frase-sep">◆</span></span>
-    <span class="frase-item">🤎 Fogón Mates — tradición que se comparte<span class="frase-sep">◆</span></span>
-    <!-- duplicado para loop continuo -->
-    <span class="frase-item">🧉 El mate no se pide, se ofrece<span class="frase-sep">◆</span></span>
-    <span class="frase-item">🔥 Hecho a mano, sentido con el alma<span class="frase-sep">◆</span></span>
-    <span class="frase-item">🌿 La yerba buena es la que se comparte<span class="frase-sep">◆</span></span>
-    <span class="frase-item">🪵 Algarrobo que dura toda la vida<span class="frase-sep">◆</span></span>
-    <span class="frase-item">☕ El primer mate del día es sagrado<span class="frase-sep">◆</span></span>
-    <span class="frase-item">🐄 Cada pieza única, como quien la ceba<span class="frase-sep">◆</span></span>
-    <span class="frase-item">🍂 Tradición en tus manos<span class="frase-sep">◆</span></span>
-    <span class="frase-item">💛 Sin apuro, como el primer cebado<span class="frase-sep">◆</span></span>
-    <span class="frase-item">🌾 Del campo a tu mesa<span class="frase-sep">◆</span></span>
-    <span class="frase-item">🤎 Fogón Mates — tradición que se comparte<span class="frase-sep">◆</span></span>
-  </div>
-</div>
 
 <!-- PRODUCTOS -->
 <section id="productos">
@@ -1234,13 +1267,12 @@ footer::before {
   <div class="feature-text">
     <p class="feature-eyebrow">◆ Nuestra Historia</p>
     <h2 class="feature-title">Madera noble.<br><em>Manos que saben.</em></h2>
-    <p class="feature-body">Cada mate que sale de nuestro taller lleva el tiempo que merece. No hay dos piezas iguales, porque la naturaleza tampoco lo permite.</p>
+    <p class="feature-body">Seleccionamos piezas con carácter único y materiales nobles. No hay dos piezas iguales, porque la naturaleza tampoco lo permite.</p>
   </div>
   <ul class="feature-list">
     <li>Materiales: algarrobo, calabaza natural y cuero genuino</li>
     <li>Virolas de acero inoxidable con terminación artesanal</li>
     <li>Cada pieza conserva su veta e identidad original</li>
-    <li>Sin producción en serie — todo hecho a pedido</li>
     <li>Envíos a todo el país</li>
   </ul>
 </section>
